@@ -13,14 +13,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var MySwitch: UISwitch!
     @IBOutlet weak var switchLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var stepperLbl: UILabel!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         textField.delegate = self
         // Gesture (1)
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(hideKeyboard)))
         updateSwitchLabel()
+        updateStepperLabel()
         }
     
     // (1)
@@ -28,12 +31,23 @@ class ViewController: UIViewController {
        view.endEditing(true)
     }
     
+    /**Fonction pour mon switch*/
     func updateSwitchLabel() {
         switchLabel.text = "Valeur du Switch" + " : " + String(MySwitch.isOn)
     }
     
+    func updateStepperLabel() {
+        let number = Int(stepper.value)
+        stepperLbl.text = "Valeur du stepper: \(number)"
+    }
+    
+    
+    /**=======ACTIONS=======*/
     @IBAction func switchChanger(_ sender: UISwitch) {
          updateSwitchLabel()
+    }
+    @IBAction func stapperChanger(_ sender: UIStepper) {
+        updateStepperLabel()
     }
     
 }
