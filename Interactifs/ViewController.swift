@@ -11,24 +11,33 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var textPassWord: UITextField!
+    @IBOutlet weak var MySwitch: UISwitch!
+    @IBOutlet weak var switchLabel: UILabel!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         textField.delegate = self
-        textPassWord.delegate = self
         // Gesture (1)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
-        
+        updateSwitchLabel()
         }
+    
     // (1)
     @objc func hideKeyboard() {
        view.endEditing(true)
     }
     
+    func updateSwitchLabel() {
+        switchLabel.text = "Valeur du Switch" + " : " + String(MySwitch.isOn)
+    }
+    
+    @IBAction func switchChanger(_ sender: UISwitch) {
+         updateSwitchLabel()
+    }
+    
 }
-// avec le bouton return et delegate
+// Les differentes extensions delegate
 extension ViewController:UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
