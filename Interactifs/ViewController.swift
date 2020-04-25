@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLbl: UILabel!
+    @IBOutlet weak var segmented: UISegmentedControl!
+    @IBOutlet weak var segmentedLbl: UILabel!
+    
     
     override func viewDidLoad() {
         
@@ -24,6 +27,9 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(hideKeyboard)))
         updateSwitchLabel()
         updateStepperLabel()
+        segmented.selectedSegmentIndex = 1
+        segmented.selectedSegmentTintColor = .systemPink
+        updateSegmentedLabel()
         }
     
     // (1)
@@ -31,7 +37,7 @@ class ViewController: UIViewController {
        view.endEditing(true)
     }
     
-    /**Fonction pour mon switch*/
+    /** FONCTIONS */
     func updateSwitchLabel() {
         switchLabel.text = "Valeur du Switch" + " : " + String(MySwitch.isOn)
     }
@@ -41,6 +47,16 @@ class ViewController: UIViewController {
         stepperLbl.text = "Valeur du stepper: \(number)"
     }
     
+    func updateSegmentedLabel(){
+        let index = segmented.selectedSegmentIndex
+        if index == 1 {
+            segmentedLbl.text = "Géocalisation"
+        }else if index <= 1 {
+            segmentedLbl.text = "Restaurant"
+        } else if index >= 1 {
+            segmentedLbl.text = "Coup de coeur"
+        }
+    }
     
     /**=======ACTIONS=======*/
     @IBAction func switchChanger(_ sender: UISwitch) {
@@ -49,11 +65,15 @@ class ViewController: UIViewController {
     @IBAction func stapperChanger(_ sender: UIStepper) {
         updateStepperLabel()
     }
+    @IBAction func segmentedChanged(_ sender: UISegmentedControl) {
+        updateSegmentedLabel()
+    }
     
 }
 // Les differentes extensions delegate
 extension ViewController:UITextFieldDelegate {
     
+    /** Fonction pour le clavier*/
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true

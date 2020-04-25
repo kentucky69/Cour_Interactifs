@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SkE-qZ-O09">
-                                <rect key="frame" x="20" y="64" width="374" height="137"/>
+                                <rect key="frame" x="20" y="64" width="374" height="228.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delegate" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8zq-Ba-DZn">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -35,8 +35,8 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yh9-rl-7gI">
                                                 <rect key="frame" x="325" y="0.0" width="51" height="31"/>
-                                                <color key="onTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="thumbTintColor" red="0.14067216099999999" green="0.72451246609999997" blue="0.7545481221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="onTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="thumbTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <connections>
                                                     <action selector="switchChanger:" destination="BYZ-38-t0r" eventType="valueChanged" id="DcU-hy-gJh"/>
                                                 </connections>
@@ -60,6 +60,23 @@
                                             </stepper>
                                         </subviews>
                                     </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SEv-Jc-HXy">
+                                        <rect key="frame" x="0.0" y="157" width="374" height="32"/>
+                                        <segments>
+                                            <segment title="" image="house.fill" catalog="system"/>
+                                            <segment title="" image="paperplane.fill" catalog="system"/>
+                                            <segment title="" image="suit.heart.fill" catalog="system"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentedChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="pls-6h-D0F"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05r-Ql-wrE">
+                                        <rect key="frame" x="0.0" y="208" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -74,6 +91,8 @@
                     </view>
                     <connections>
                         <outlet property="MySwitch" destination="yh9-rl-7gI" id="DRm-6C-5el"/>
+                        <outlet property="segmented" destination="SEv-Jc-HXy" id="YWb-1e-HkL"/>
+                        <outlet property="segmentedLbl" destination="05r-Ql-wrE" id="USz-b0-m1y"/>
                         <outlet property="stepper" destination="JUp-2p-nkY" id="7cw-Lu-Slt"/>
                         <outlet property="stepperLbl" destination="N2r-VM-MDa" id="gQ5-gA-9HM"/>
                         <outlet property="switchLabel" destination="kjW-LE-WMZ" id="Ojn-SW-8p3"/>
@@ -85,4 +104,9 @@
             <point key="canvasLocation" x="-57.971014492753625" y="112.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="121"/>
+        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
+    </resources>
 </document>
