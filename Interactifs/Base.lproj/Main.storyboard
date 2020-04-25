@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SkE-qZ-O09">
-                                <rect key="frame" x="20" y="64" width="374" height="359.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="504.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delegate" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8zq-Ba-DZn">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -94,7 +94,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="0.0" maxValue="100" minimumValueImage="sun.max.fill" catalog="system" maximumValueImage="moon.fill" translatesAutoresizingMaskIntoConstraints="NO" id="hmJ-Dw-Pyw">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="0.0" maxValue="100" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="hmJ-Dw-Pyw">
                                         <rect key="frame" x="-2" y="289" width="378" height="31"/>
                                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="minimumTrackTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,6 +110,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyI-aK-od5">
+                                        <rect key="frame" x="0.0" y="379.5" width="374" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="hCS-h4-73a"/>
+                                        </constraints>
+                                    </pickerView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -126,6 +132,7 @@
                         <outlet property="MySwitch" destination="yh9-rl-7gI" id="DRm-6C-5el"/>
                         <outlet property="maxSlide" destination="nm1-kK-oKS" id="U6o-pQ-1Jr"/>
                         <outlet property="minSlide" destination="dov-gS-8V4" id="FJL-Vi-HEp"/>
+                        <outlet property="pickerView" destination="uyI-aK-od5" id="zD8-bg-Cs7"/>
                         <outlet property="segmented" destination="SEv-Jc-HXy" id="YWb-1e-HkL"/>
                         <outlet property="segmentedLbl" destination="05r-Ql-wrE" id="USz-b0-m1y"/>
                         <outlet property="slideLbl" destination="0Uf-Id-rTh" id="abF-sl-3l8"/>
@@ -143,9 +150,9 @@
     </scenes>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="moon.fill" catalog="system" width="128" height="121"/>
         <image name="paperplane.fill" catalog="system" width="128" height="121"/>
+        <image name="speaker.3.fill" catalog="system" width="128" height="90"/>
+        <image name="speaker.fill" catalog="system" width="128" height="121"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
-        <image name="sun.max.fill" catalog="system" width="128" height="124"/>
     </resources>
 </document>

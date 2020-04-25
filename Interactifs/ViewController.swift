@@ -21,12 +21,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var maxSlide: UILabel!
     @IBOutlet weak var slideLbl: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var pickerView: UIPickerView!
     
+    var pickerArray = ["Boom Festival","Defqon.1","Syndicate Festival", "Reperkusound,Hypnotik", "Tomorrowland", "Airbeat One Festival"]
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         textField.delegate = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
         // Gesture (1)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(hideKeyboard)))
         updateSwitchLabel()
@@ -36,9 +40,11 @@ class ViewController: UIViewController {
         updateSegmentedLabel()
         
         slider.maximumTrackTintColor = .systemGray
-        minSlide.text = "min \(slider.minimumValue)°"
-        maxSlide.text = "max \(slider.maximumValue)°"
+        minSlide.text = "min \(slider.minimumValue)"
+        maxSlide.text = "max \(slider.maximumValue)"
         updateSliderChanged()
+        
+        
         }
     
     // (1)
@@ -69,7 +75,7 @@ class ViewController: UIViewController {
     
     func updateSliderChanged() {
         let value = Int(slider.value)
-        slideLbl.text = "Valeur : \(value)°"
+        slideLbl.text = "Valeur : \(value)"
         
     }
     
@@ -101,5 +107,30 @@ extension ViewController:UITextFieldDelegate {
         print(String(describing: textField.text) )
         return true
     }
+}
+
+
+// UIPickerView
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("Element choisi \(pickerArray[row ]) ")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+           return pickerArray[row]
+    }
+    
+    
+    
+    
 }
 
